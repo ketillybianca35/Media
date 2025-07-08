@@ -25,12 +25,13 @@
                 +b1.value, +b2.value,
                 +b3.value, +b4.value)">
     </div>
+    </form>
     <div> 
-       Situação: {{situacao}}
+       Situação: {{boletim.obterSituacao()}}
     </div>
 
     <div *ngIf="mediaParcial != undefined">
     <p>Média Parcial = {{mediaParcial}}</p>
     </div>
     
-</form>
+
