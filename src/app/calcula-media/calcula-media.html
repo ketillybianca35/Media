@@ -24,6 +24,11 @@
             (click)="calcularMediaParcial(
                 +b1.value, +b2.value,
                 +b3.value, +b4.value)">
+    <div *ngIf = ""> 
+        <label for="provaFinal">Prova Final</label>
+        <input id ="provaFinal"type ="number" >  
+    </div>
+        
     </div>
     </form>
     <div> 
@@ -33,5 +38,6 @@
     <div *ngIf="mediaParcial != undefined">
     <p>Média Parcial = {{mediaParcial}}</p>
     </div>
+    
     
 

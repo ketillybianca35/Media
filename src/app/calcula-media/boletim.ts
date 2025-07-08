@@ -13,6 +13,7 @@ export class Boletim{
     mediaParcial: number  |undefined
     mediaFinal: number    |undefined
     situacao: string
+    provafinal : number   |undefined
 
 
     constructor(b1:number| undefined= undefined,
@@ -26,6 +27,7 @@ export class Boletim{
         this.mediaParcial = undefined
         this.mediaFinal = undefined
         this.situacao = Situacao.CURSANDO
+        this.provafinal = undefined
         
     }
     alterarBim1(nota:number){
@@ -101,4 +103,28 @@ export class Boletim{
     obterSituacao(){
         return this.situacao
      }
+     calcularmediaFinal(b1:number,b2:number,
+                         b3:number, b4:number,
+                        provafinal :number){
+      
+      this.alterarBim1(b1)
+      this.alterarBim2(b2)
+      this.alterarBim3(b3)
+      this.alterarBim4(b4)
+     
+      if (this.bim1 && this.bim2 && this.bim3 && this.bim4){
+        const menorNota = Math.min(b1,b2, b3, b4)
+        if(menorNota===b1) b1= provafinal;
+        else if(menorNota===b2) b2= provafinal;
+        else if(menorNota===b3) b3= provafinal ;
+        else b4= provafinal;
+
+  
+      this.mediaFinal=
+      (b1 * 2 + b3 * 2 +b3 * 3 + b4 * 3)/10
+
+      this.alterarSituacao(this.mediaFinal)
+      }
+      return this.mediaFinal
+}
 }
